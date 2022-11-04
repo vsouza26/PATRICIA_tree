@@ -108,3 +108,7 @@ void FileNode::setPIOriginal(char *piOrigin)
 void FileNode::setOffset(unsigned int offset){
     this->offset = offset;
 }
+
+void FileNode::setClasseMorfologica(char c){
+    this->classeMorfologia = c;
+}
