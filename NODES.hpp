@@ -18,16 +18,6 @@ private:
     void setIndex(int valor);
 };
 
-class ENode : public Node
-{
-private:
-    unsigned int offset;
-    FileNode fileNode;
-    ENode(int numTraducoes, char classeMorfologia, char *piOriginal, char *piDestino);
-    unsigned int getOffset();
-    void setOffset(unsigned int offset);
-};
-
 class FileNode : public Node
 {
     unsigned int offset;
@@ -47,3 +37,14 @@ class FileNode : public Node
     void setPIOriginal(char *piOriginal);
     void setPIDestino(char *piDestino);
 };
+
+class ENode : public Node
+{
+private:
+    unsigned int offset;
+    FileNode fileNode;
+    ENode(int numTraducoes, char classeMorfologia, char *piOriginal, char *piDestino);
+    unsigned int getOffset();
+    void setOffset(unsigned int offset);
+};
+
