@@ -9,6 +9,8 @@ class INode : public Node
 private:
     Node *esq, *dir;
     int index;
+
+public:
     INode(int offset, Node *esq, Node *dir);
     int getIndex();
     Node *getEsq();
@@ -20,12 +22,15 @@ private:
 
 class FileNode : public Node
 {
+private:
     unsigned int offset;
     int numTraducoes; // Número de traduções disponíveis para a palavra
     char classeMorfologia;
     char piOriginal[30];     // Palavra em Idioma de origem
     char piDestino[50 * 10]; // Palavra em Idioma Destino (Podem Existir até 10 traduções da mesma palavra)
-    FileNode(int numTraducoes, char classeMorfologia, char *piOriginal, char *piDestino);
+
+public:
+    FileNode(char classeMorfologia, char *piOriginal, char *piDestino);
     unsigned int getOffset();
     int getNumTraducoes();
     char getClasseMorfologia();
@@ -47,4 +52,3 @@ private:
     unsigned int getOffset();
     void setOffset(unsigned int offset);
 };
-
