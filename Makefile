@@ -9,4 +9,4 @@ NODES.o: NODES.cpp
 PATRICIATREE.o: PATRICIATREE.cpp
 	g++ PATRICIATREE.cpp -c
 clear: main.o  FILEHANDLER.o NODES.o PATRICIATREE.o
-	rm *.o *.out
+	rm *.o *.out *.dat

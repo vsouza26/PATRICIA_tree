@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string.h>
 class Node
 {
 };
@@ -23,21 +23,19 @@ public:
 class FileNode : public Node
 {
 private:
-    unsigned int offset;
     int numTraducoes; // Número de traduções disponíveis para a palavra
-    char classeMorfologia;
+    char classeMorfologia[1];
     char piOriginal[30];     // Palavra em Idioma de origem
     char piDestino[50 * 10]; // Palavra em Idioma Destino (Podem Existir até 10 traduções da mesma palavra)
 
 public:
-    FileNode(char classeMorfologia, char *piOriginal, char *piDestino);
-    unsigned int getOffset();
+    FileNode(char* classeMorfologia, char *piOriginal, int numTraducoes, char * piDestino);
+    FileNode();
     int getNumTraducoes();
-    char getClasseMorfologia();
+    char *getClasseMorfologica();
     char *getPIOriginal();
     char *getPIDestino();
-    void setOffset(unsigned int offset);
-    void setClasseMorfologica(char c);
+    void setClasseMorfologica(char *c);
     void setNumTraducoes(int numTraducoes);
     void setPIOriginal(char *piOriginal);
     void setPIDestino(char *piDestino);
@@ -46,9 +44,8 @@ public:
 class ENode : public Node
 {
 private:
-    unsigned int offset;
-    FileNode fileNode;
-    ENode(int numTraducoes, char classeMorfologia, char *piOriginal, char *piDestino);
+    unsigned int offsetFile;
+public:
+    ENode(int offsetFile);
     unsigned int getOffset();
-    void setOffset(unsigned int offset);
-};
+    void setOffset(unsigned int offset);};

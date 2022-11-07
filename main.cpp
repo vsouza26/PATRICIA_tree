@@ -1,12 +1,8 @@
-#include "NODES.hpp"
-#include <iostream>
-#include <fstream>
+#include "main.hpp"
 int main(){
-    std::ofstream test("teste");
-    char test2[6] = "teste";
-    FileNode Node = FileNode('c', test2, test2);
-    for (int i = 0; i < 9; i++){
-        Node.setPIDestino(test2);
-    }
-    test.write((char*)&Node, sizeof(Node));
+  PATRICIATREE ptree = PATRICIATREE("saida.dat");
+  char palavraOriginal[30] = {'d','o','r','m','i','r'};
+  char traducoes[500] = {'s','l','e', 'e','p'};
+  char c[1] = {'c'};
+  ptree.insertNode(palavraOriginal, c, 1, traducoes);
 }
