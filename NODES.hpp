@@ -24,15 +24,15 @@ class FileNode : public Node
 {
 private:
     int numTraducoes; // Número de traduções disponíveis para a palavra
-    char classeMorfologia[1];
+    char classeMorfologica[1];
     char piOriginal[30];     // Palavra em Idioma de origem
     char piDestino[50 * 10]; // Palavra em Idioma Destino (Podem Existir até 10 traduções da mesma palavra)
 
 public:
-    FileNode(char* classeMorfologia, char *piOriginal, int numTraducoes, char * piDestino);
+    FileNode(char* classeMorfologica, char *piOriginal, int numTraducoes, char * piDestino);
     FileNode();
     int getNumTraducoes();
-    char *getClasseMorfologica();
+    char getClasseMorfologica();
     char *getPIOriginal();
     char *getPIDestino();
     void setClasseMorfologica(char *c);

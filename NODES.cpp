@@ -41,7 +41,7 @@ FileNode::FileNode(char* classeMorfologica, char *piOriginal, int numTraducoes, 
 {
     this->setNumTraducoes(numTraducoes);
     this->setPIDestino(piDestino);
-    this->setClasseMorfologica(classeMorfologia);
+    this->setClasseMorfologica(classeMorfologica);
     this->setPIOriginal(piOriginal);
 }
 
@@ -52,9 +52,9 @@ int FileNode::getNumTraducoes()
     return this->numTraducoes;
 }
 
-char *FileNode::getClasseMorfologica()
+char FileNode::getClasseMorfologica()
 {
-    return this->classeMorfologia;
+    return this->classeMorfologica[0];
 }
 
 char *FileNode::getPIDestino()
@@ -125,7 +125,7 @@ void FileNode::setPIOriginal(char *piOrigin)
 
 void FileNode::setClasseMorfologica(char *c)
 {
-    strcpy(this->classeMorfologia,c);
+    strcpy(this->classeMorfologica,c);
 }
 
 ENode::ENode(int offsetFile)
