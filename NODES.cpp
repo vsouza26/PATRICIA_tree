@@ -1,18 +1,29 @@
 #include "NODES.hpp"
 
+void Node::setTipo(Type tipo)
+{
+    this->tipo = tipo;
+}
+
+Type Node::getTipo()
+{
+    return this->tipo;
+}
+
 INode::INode(int offset, Node *esq, Node *dir)
 {
     INode::setIndex(offset);
     INode::setDir(dir);
     INode::setEsq(esq);
+    this->setTipo(IntNode);
 };
 
 void INode::setIndex(int index)
 {
     this->index = index;
 }
-
-int INode::getIndex()
+//INDICE DO DIFF BIT
+unsigned int INode::getIndex()
 {
     return this->index;
 }
@@ -21,7 +32,7 @@ void INode::setDir(Node *dir)
 {
     this->dir = dir;
 }
-
+//PONTEIRO PARA TIPO NODE
 Node *INode::getDir()
 {
     return this->dir;
@@ -37,7 +48,7 @@ Node *INode::getEsq()
     return this->esq;
 }
 
-FileNode::FileNode(char* classeMorfologica, char *piOriginal, int numTraducoes, char *piDestino)
+FileNode::FileNode(char *classeMorfologica, char *piOriginal, int numTraducoes, char *piDestino)
 {
     this->setNumTraducoes(numTraducoes);
     this->setPIDestino(piDestino);
@@ -45,23 +56,23 @@ FileNode::FileNode(char* classeMorfologica, char *piOriginal, int numTraducoes, 
     this->setPIOriginal(piOriginal);
 }
 
-FileNode::FileNode(){}
-
+FileNode::FileNode() {}
+//INTEIRO
 int FileNode::getNumTraducoes()
 {
     return this->numTraducoes;
 }
-
+//CHAR
 char FileNode::getClasseMorfologica()
 {
     return this->classeMorfologica[0];
 }
-
+//CHAR ARRAY DE TAMANHO 500
 char *FileNode::getPIDestino()
 {
     return this->piDestino;
 }
-
+//CHAR ARRAY DE TAMANHO 30
 char *FileNode::getPIOriginal()
 {
     return this->piOriginal;
@@ -125,10 +136,19 @@ void FileNode::setPIOriginal(char *piOrigin)
 
 void FileNode::setClasseMorfologica(char *c)
 {
-    strcpy(this->classeMorfologica,c);
+    strcpy(this->classeMorfologica, c);
 }
 
-ENode::ENode(int offsetFile)
+ENode::ENode(unsigned int offsetFile)
 {
     this->offsetFile = offsetFile;
+    this->setTipo(ExtNode);
+}
+
+unsigned int ENode::getOffset(){
+    return this->offsetFile;
+}
+
+void ENode::setOffset(unsigned int offset){
+    this->offsetFile = offset;
 }
