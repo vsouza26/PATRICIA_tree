@@ -1,13 +1,39 @@
 #include "main.hpp"
 int main()
 {
-  PATRICIATREE ptree = PATRICIATREE("saida.dat");
-  char palavraOriginal[30] = {'a', 'b', 'a', 'a', 'a'};
-  char traducoes[500] = {'s', 'l', 'e', 'e', 'p'};
-  char key1[30] = {'a', 'a', 'a', 'a', 'a'};
-  char c[1] = {'c'};
-  ptree.insertNode(palavraOriginal, c, 1, traducoes);
-  ptree.insertNode(key1, c, 1, traducoes);
-  ptree.insertNode(key1, c, 1, traducoes);
-  ptree.printTree();
+  FHandler *fh = new FHandler();
+  char c;
+  while (std::cin >> c)
+  {
+    switch (c)
+    {
+    case 'i':
+      fh->insereTraducao();
+      break;
+    case 'a':
+      fh->listaClasse();
+      break;
+    case 'c':
+      fh->consultaClasse();
+      break;
+    case 'l':
+      fh->listaPalavrasOrigem();
+      break;
+    case 't':
+      fh->listaTraducoes();
+      break;
+    case 'r':
+      fh->removePalavra();
+      break;
+    case 'p':
+      fh->imprimeArvore();
+      break;
+    case 'e':
+      std::cout << "\n";
+      return 0;
+      break;
+    default:
+      break;
+    }
+  }
 }

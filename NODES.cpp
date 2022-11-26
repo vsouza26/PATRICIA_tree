@@ -10,7 +10,7 @@ Type Node::getTipo()
     return this->tipo;
 }
 
-INode::INode(int offset, Node *esq, Node *dir)
+INode::INode(unsigned int offset, Node *esq, Node *dir)
 {
     INode::setIndex(offset);
     INode::setDir(dir);
@@ -57,7 +57,7 @@ FileNode::FileNode(char *classeMorfologica, char *piOriginal, int numTraducoes, 
 }
 
 FileNode::FileNode() {}
-//INTEIRO
+//INTEIROFileNode
 int FileNode::getNumTraducoes()
 {
     return this->numTraducoes;
@@ -92,31 +92,9 @@ void FileNode::setNumTraducoes(int numTraducoes)
 
 void FileNode::setPIDestino(char *piDestino)
 {
-    strcpy(this->piDestino, piDestino);
-    //   int numIndex = this->getNumTraducoes();
-    //   bool endEntry = false;
-    //   if (numIndex <= 9)
-    //   {
-    //       for (int i = 50 * numIndex; i < 50 * (numIndex + 1); i++)
-    //       {
-    //           if (piDestin[i%50] != '\0' && !endEntry)
-    //           {                                          // acha o fim da string a ser inserida e zera os outros caracteres
-    //               this->piDestino[i] = piDestin[i % 50]; // i%50 sempre começará no 0 para n valores de i
-    //               std::cout << "Inserindo " << piDestin[i%50] << " na pos: " << i%50 << "\n";
-    //           }
-    //           else
-    //           {
-    //               this->piDestino[i] = '\0';
-    //               std::cout << "Zerando as posições " << i << " pos. relativa:  " << i%50 << "\n";
-    //               endEntry = true;
-    //           }
-    //       }
-    //       this->setNumTraducoes(numIndex + 1);
-    //}
-    // else
-    //{
-    //    std::cerr << "Não é permitido inserir mais traduções";
-    //}
+    for(int i = 0; i < 500; i++){
+        this->piDestino[i] = piDestino[i];
+    }
 }
 
 void FileNode::setPIOriginal(char *piOrigin)

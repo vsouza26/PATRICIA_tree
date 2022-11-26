@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string.h>
 enum Type
@@ -19,7 +20,7 @@ private:
     Node *esq, *dir;
     unsigned int index;
 public:
-    INode(int offset, Node *esq, Node *dir);
+    INode(unsigned int offset, Node *esq, Node *dir);
     unsigned int getIndex();
     Node *getEsq();
     Node *getDir();
